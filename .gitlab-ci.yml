@@ -1,0 +1,6 @@
+job:on-schedule:
+  image: rainu/docker-alpine-curl
+  only:
+    - schedules
+  script:
+    - curl -v -X POST "https://registry.hub.docker.com/u/rainu/docker-node/trigger/${TRIGGER_TOKEN}/"
